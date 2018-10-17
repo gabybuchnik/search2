@@ -21,7 +21,11 @@ function fromDir(startPath,word,extension){
             fromDir(filename,word,extension); //recurse
         }
         else if (filename.indexOf(extension)>=0) {
-            var data = fs.readFileSync(filename , 'utf8');
+            try {  
+                var data = fs.readFileSync(filename , 'utf8');    
+            } catch(e) {
+                console.log('Error:', e.stack);
+            } 
             if(data.indexOf(word) > -1)
             {
                 flag++;
@@ -32,12 +36,7 @@ function fromDir(startPath,word,extension){
 };
 
 /*
-try {  
-   
-    console.log(data);    
-} catch(e) {
-    console.log('Error:', e.stack);
-} 
+
 */
 
 if(word=="" && extension==""){
