@@ -35,10 +35,6 @@ function fromDir(startPath,word,extension){
     };
 };
 
-/*
-
-*/
-
 if(word=="" && extension==""){
     console.log('USAGE: node search [EXT] [TEXT]');
 }
